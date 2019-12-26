@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root to: 'homes#show'
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
+  resources :shouts, only: [:create]
   resource :session, only: [:create]
 
   resources :users, only: [:create] do
