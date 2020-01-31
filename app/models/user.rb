@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
 
+  def to_param
+    username
+  end
+
   def like(shout)
     liked_shouts << shout
   end
