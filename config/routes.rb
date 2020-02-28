@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   end
 
   root to: 'homes#show'
+  post 'text_shouts' => 'shouts#create', defaults: { content_type: TextShout }
+  post 'photo_shouts' => 'shouts#create', defaults: { content_type: PhotoShout }
+
   resources :passwords, controller: 'clearance/passwords', only: %i[create new]
-  resources :shouts, only: %i[create show] do
+  resources :shouts, only: %i[show] do
     member do
       post 'like' => 'likes#create'
       delete 'unlike' => 'likes#destroy'
