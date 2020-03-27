@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     end
   end
   resource :session, only: [:create]
+  resources :hashtags, only: [:show]
 
   resources :users, only: %i[create show] do
     resources :followers, only: %i[index]
